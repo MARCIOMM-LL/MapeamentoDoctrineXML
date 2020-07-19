@@ -29,7 +29,7 @@ class EntityManagerCreator
         $connection = [
             'driver' => 'pdo_pgsql',
             'host' => 'localhost',
-            'dbname' => 'alura_filmes',
+            'dbname' => 'alura_filmes_novo',
             'user' => 'postgres',
             'password' => '1112' 
         ];
