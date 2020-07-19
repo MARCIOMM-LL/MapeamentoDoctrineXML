@@ -13,16 +13,16 @@ class EntityManagerCreator
     #do negócio para o banco de dados e para mapear o doctrine
     #precisamos de um gerenciador de entidades que é o que
     #vamos implementar abaixo
-    public function criaEntityManager(): EntityManagerInterface
+    public function criaEntityManager(): EntityManagerInterface     
     {
         // Essa classe cria as configurações necessárias com base em annotations
         // que o doctrine precisa
-        $config = Setup::createAnnotationMetadataConfiguration(
+        $config = Setup::createXMLMetadataConfiguration(
             // Aqui temos o caminho onde está a classe EntityManagerCreator
-            // até a pasta onde estão as classes que é em Entity
+            // até a pasta onde estão as classes que é em mapeamentos
             // O caminho parte da pasta Helper até a pasta src e depois
-            // para a pasta Entity
-            [__DIR__ . '/../Entity'],
+            // até à raiz do projeto, depois volta para a pasta mapeamentos
+            [__DIR__ . '/../../mapeamentos'],
             true
         );
         // Aqui temos a conexão com o banco em questão e seu devido caminho
