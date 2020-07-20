@@ -15,6 +15,7 @@ CREATE TABLE idioma
 );
 
 CREATE TYPE CLASSIFICACAO AS ENUM ('G', 'PG', 'PG-13', 'R', 'NC-17');
+
 CREATE TABLE filme
 (
   id_filme           SERIAL PRIMARY KEY,

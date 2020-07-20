@@ -2,6 +2,7 @@
 
 use Alura\Doctrine\Entity\Ator;
 use Alura\Doctrine\Entity\Filme;
+use Alura\Doctrine\Entity\Idioma;
 use Alura\Doctrine\Helper\EntityManagerCreator;
 
 require_once 'vendor/autoload.php';
@@ -10,14 +11,17 @@ require_once 'vendor/autoload.php';
 $em = (new EntityManagerCreator())->criaEntityManager();
 
 $ator = new Ator(null, 'Márcio', 'Miranda');
-$filme1 = new Filme(null, 'Avatar', '2020');
-$filme2 = new Filme(null, 'Scarface', '1982');
+
+$portugues = new Idioma(null, 'Português');
+$alemao = new Idioma(null, 'Alemão');
+$ingles = new Idioma(null, 'Inglês');
+
+$filme1 = new Filme(null, 'Avatar', $portugues, $alemao);
+$filme2 = new Filme(null, 'Long\'s brother', $portugues, $ingles);
 
 $ator->addFilme($filme1);
 $ator->addFilme($filme2);
 
 $em->persist($ator);
-$em->persist($filme1);
-$em->persist($filme2);
 
 $em->flush();

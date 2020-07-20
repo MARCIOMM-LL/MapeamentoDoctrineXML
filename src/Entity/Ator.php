@@ -2,6 +2,7 @@
 
 namespace Alura\Doctrine\Entity;
 
+use Alura\Doctrine\Entity\Filme;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Ator
@@ -12,11 +13,8 @@ class Ator
     private $ultimaAtualizacao;
     private $filmes;
 
-    public function __construct(
-        ?int $id,
-        string $primeiroNome,
-        string $ultimoNome
-    ) {
+    public function __construct(?int $id, string $primeiroNome, string $ultimoNome) 
+    {
         $this->id = $id;
         $this->primeiroNome = $primeiroNome;
         $this->ultimoNome = $ultimoNome;
@@ -32,5 +30,10 @@ class Ator
 
         $this->filmes->add($filme);
         $filme->addAtor($this);
+    }
+
+    public function getNome(): string
+    {
+        return $this->primeiroNome . ' ' . $this->ultimoNome;
     }
 }

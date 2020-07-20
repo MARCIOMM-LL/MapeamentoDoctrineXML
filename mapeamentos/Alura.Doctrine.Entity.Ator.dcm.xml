@@ -23,6 +23,11 @@
         </field>
 
         <many-to-many field="filmes" target-entity="Alura\Doctrine\Entity\Filme" inversed-by="atores">
+
+        <cascade >
+            <cascade-persist/>
+        </cascade>
+
             <join-table name="ator_filme">
                 <join-columns>
                     <join-column name="id_ator" referenced-column-name="id_ator" />
